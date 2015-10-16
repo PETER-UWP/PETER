@@ -6,9 +6,10 @@ Team PETER Robo-Ops repository.
 Current Tasks
 -------------
 * Get members onto Git
-* Expand acronym in subtitle
-* Divide up tasks
-* find tasks
+* Decrease Frequency of eMails
+* Expand Acronym in Subtitle
+* Divide Up Tasks
+* Find Tasks
 
 Current Members
 ---------------
