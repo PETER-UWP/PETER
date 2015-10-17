@@ -15,5 +15,6 @@ Current Members
 ---------------
 * Steven W Laabs
 * Murray Fordyce
+* Travis Kraemer
 
 -- would all members please add their name to the list so that they are listed in the repository --
