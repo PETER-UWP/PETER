@@ -10,7 +10,9 @@
     Marshall explained that the board we were looking at from XES will probably not be ideal for our use because it consumes too much power.
     Marshall also explained that any board from XES will probably consume too much power for our use.
     Most of the boards from XES have an approximate power draw of 20W and Marshall believes that we can find something closer to 7W.
-*** We also added batteries to the contingency form (Multistar High Capacity 100W*Hr, $90)
-*** Discussed using a micro controller via USB to the main onboard computer for motor control.
+*** We also added batteries to the contingency form
+    Multistar High Capacity 100W*Hr, $90
+*** Discussed using a micro controller
+    Via USB to the main on board computer for use as a motor control.
 *** Finally, we stressed the importance and desire to create redundant/backup systems
     as long as it isn't hurting the overall function and durability of the rover.
