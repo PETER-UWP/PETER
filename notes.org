@@ -1,7 +1,7 @@
 * <2015-10-15>
 ** General Meeting Highlights
-*** Main [[www.pioneerrobotics.weebly.com][Website]] started.
-*** Looked at [[www.e-consystems.com][cameras]].
+*** Main [[http:\\www.pioneerrobotics.weebly.com][Website]] started.
+*** Looked at [[http:\\www.e-consystems.com][cameras]].
 *** General overview of the contingency request form.
     We are still looking and thinking of items that we want to add to the contingency form.
     We want as much money and as many items on it as possible, since we will only get a fraction of the money that we ask for.
@@ -15,4 +15,4 @@
 *** Discussed using a micro controller
     Via USB to the main on board computer for use as a motor control.
 *** Finally, we stressed the importance and desire to create redundant/backup systems
-    as long as it isn't hurting the overall function and durability of the rover.
+    As long as it isn't hurting the overall function and durability of the rover.
