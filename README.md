@@ -18,5 +18,6 @@ Current Members
 * Travis Kraemer
 * Lizzy Harasymiw
 * Cody Kundinger
+* Marshall Scholz (Teslafly)
 
 --- would all members please add their name to the list so that they are listed in the repository ---
