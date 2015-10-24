@@ -17,5 +17,6 @@ Current Members
 * Murray Fordyce
 * Travis Kraemer
 * Lizzy Harasymiw
+* Cody Kundinger
 
 --- would all members please add their name to the list so that they are listed in the repository ---
