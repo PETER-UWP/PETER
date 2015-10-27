@@ -1,10 +1,10 @@
 * <2015-10-23>
-** Contingency Form
+** Worked On Contingency Form
 *** Added Cameras 
 *** Added Microcomputers
-*** Added Misc.
+*** Added Misc
 ** Safety Training
-*** Karl, from SAE, conducted the safety training for those you had not yet completed it. 
+   Karl (from SAE) conducted safety training for those who had not yet completed it
 * <2015-10-15>
 ** General Meeting Highlights
 *** Main [[http://www.pioneerrobotics.weebly.com][Website]] started.
