@@ -1,5 +1,5 @@
 # PETER
-P.E.T.E.R.
+P.E.T.E.R. (Platteville Engineering, Technology and Excellence in Robotics)
 Team PETER Robo-Ops repository.
 ===============================
 
