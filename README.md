@@ -20,4 +20,4 @@ Current Members (Add e-mail Next To Your Name)
 * Cody Kundinger			kundingerc@uwplatt.edu
 * Marshall Scholz (Teslafly)
 
---- would all members please add their name and emailto the list so that they are listed in the repository ---
+--- would all members please add their name and email to the list so that they are listed in the repository ---
