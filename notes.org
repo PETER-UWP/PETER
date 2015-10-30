@@ -1,11 +1,12 @@
 * <2015-10-29>
 ** Selected Primary Onboard Computer
-*** [[https://developer.nvidia.com/jetson-tk1][Nividia Jetson TK1]]
-*** Will Probably Still Except the XES Board to Experiment/Learn With
+	 We will probably be using the [[https://developer.nvidia.com/jetson-tk1][Nividia Jetson TK1]]
+	 We will probably still accept the XES Board to Experiment and Learn With.
 ** Discussed Using ROS for Software Framework
-*** [[http://www.ros.org/about-ros/][About ROS]]
+	 [[http://www.ros.org/about-ros/][About ROS]]
 ** Deliberation Meeting
-*** The deliberation meeting went very well, budget for next year (approx. $6400)
+	 The deliberation meeting went very well
+	 The budget for next year is approximately $6400
 * <2015-10-23>
 ** Worked On Contingency Form
 *** Added Cameras 
