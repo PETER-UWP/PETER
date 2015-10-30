@@ -17,7 +17,7 @@ Current Members (Add e-mail Next To Your Name)
 * Murray Fordyce
 * Travis Kraemer
 * Lizzy Harasymiw
-* Cody Kundinger			kundingerc@uwplatt.edu
+* Cody Kundinger			
 * Marshall Scholz (Teslafly)
 
---- would all members please add their name and email to the list so that they are listed in the repository ---
+--- would all members please add their name to the list so that they are listed in the repository ---
