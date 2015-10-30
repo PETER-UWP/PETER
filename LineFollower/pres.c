@@ -47,12 +47,12 @@ void CalibrationMode(){
 
 	delay(20);
 	while(digitalRead(CalButton)==0)delay(10);
-	
+
 	LeftHigh=0;
 	LeftLow=4095;
 	RightHigh=0;
 	RightLow=4095;
-	
+
 	int tl,tr;
 	for(;;){
 		delay(10);
@@ -79,9 +79,9 @@ void CalibrationMode(){
 
 void loop(){
 	if(digitalRead(CalButton)==0)CalibrationMode();
-	
+
 	int d,t;
-	
+
 	d=(255*((analogRead(ROpt)-RightLow)))/(RightHigh-RightLow)
 	 -(255*((analogRead(LOpt)-LeftLow)))/(LeftHigh-LeftLow);
 

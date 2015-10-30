@@ -1,16 +1,16 @@
 /*--------------------------------------+
- |										|
- | Author: Murray Fordyce				|
- | Lasted Edited: 02015-04-08			|
- |										|
+ |                                      |
+ | Author: Murray Fordyce               |
+ | Lasted Edited: 02015-04-08           |
+ |                                      |
  +--------------------------------------+
- | Description:							|
- |										|
- | This Code Implements A Simple Line	|
- | Following Protocol For Testing		|
- | Helper And Debug Functions Along		|
- | With Basic Implementation			|
- |										|
+ | Description:                         |
+ |                                      |
+ | This Code Implements A Simple Line   |
+ | Following Protocol For Testing       |
+ | Helper And Debug Functions Along     |
+ | With Basic Implementation            |
+ |                                      |
  +--------------------------------------*/
 
 /*** Global Variables ***/
@@ -156,12 +156,11 @@ void CalibrationMode(){
 	//}
 	//wait for finger to be taken off //*-or for reset time to be hit
 
-	
 	LeftHigh=0;
 	LeftLow=OptiMaxRead;
 	RightHigh=0;
 	RightLow=OptiMaxRead;
-	
+
 	int TempLeft,TempRight;
 	for(;;){
 		delay(10);
