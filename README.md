@@ -11,13 +11,13 @@ Current Tasks
 * Divide Up Tasks
 * Find Tasks
 
-Current Members
----------------
+Current Members (Add e-mail Next To Your Name)
+----------------------------------------------
 * Steven W Laabs
 * Murray Fordyce
 * Travis Kraemer
 * Lizzy Harasymiw
-* Cody Kundinger
+* Cody Kundinger			kundingerc@uwplatt.edu
 * Marshall Scholz (Teslafly)
 
---- would all members please add their name to the list so that they are listed in the repository ---
+--- would all members please add their name and emailto the list so that they are listed in the repository ---
