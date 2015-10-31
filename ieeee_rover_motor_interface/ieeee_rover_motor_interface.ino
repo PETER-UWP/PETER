@@ -18,10 +18,7 @@
 	- update pid loop constants - saved across powerups
 	- readout pid loop constants over serial
 	- zero inputs? (current, thrust?)
-
-
 */
-
 
 // configuration of pins/etc
 
@@ -30,99 +27,58 @@
 //#define voltPin A14
 //#define forcePin A15
 //#define revPinInterrupt 2 // For teensy 3.1.  Interrupt # is pin #
-#define sigOutL 10   // signal to esc/servo left
-#define sigOutR 11   // signal to esc/servo right
-
-
+#define LEFT_WEEL_PIN 10   // signal to esc/servo left
+#define RIGHT_WEEL_PIN 11   // signal to esc/servo right
 #define Imultiplier
 #define Iconst
 #define Vmultiplier 452
-
 #define MaxSpeed 50
-
 //#define SERIALECHO
-
-
 #define ZEROSPEED 95   // zero is between 92 and 98
 
-
-
-///////////////////////////////////
-// libraries
+	///////////////
+ // libraries //
+///////////////
 #include <Servo.h> // Allows control of the esc
 
+	/////////////////////
+ // Global Varibles //
+/////////////////////
 
-/////////////////////////////////////
-Servo myservoL;  // create servo object to control a servo
-Servo myservoR;  // create servo object to control a servo
+// create Left and Right servo
+Servo myservoL;
+Servo myservoR;
 
-
-
-
-//////////////////////////////////////
 // variables used in the program
 String inputString = "";         // a string to hold incoming data
 boolean stringComplete = false;  // whether the input string is complete
 int throttle;    // variable to read the value from the analog pin
 
-//int mode = 0; // mode. 0 is stop, 1 is potentiometer controlled, 2 is computer throttle controlled, 3 is computer wattage controlled
-int number = 0;
-//int updateFrequency = 40;
-//int analogThrottle;
+#define DEBUG 0
+
+int commandArg = 0;//TODO:commandArg of what?
 char letter;
 
-//int amp; // for PID loop
-//int volt;
+//WatchDog parameters
+#define WATCHDOG_TIME 200
+int watchdog = WATCHDOG_TIME;  // ms until watchdog triggers. is reset each time serial is recieved.
 
-#define WATCHSET 200
-int watchdog = WATCHSET;  // ms until watchdog triggers. is reset each time serial is recieved.
+//Controll Codes
+const char STOP_CHAR = 'X';
+//const char START_CHAR = 'S';
+const char LEFT_CHAR = 'L';
+const char RIGHT_CHAR = 'R';
+//const char DATA_CHAR = 'A';
+//const char WATT_CHAR = 'W';
+//const char SET_INTERVAL_CHAR = 'U';
+//const char SET_UPDATE_CHAR = 'F';
+//const char PRINT_SETTINGS_CHAR = 'V';
 
-
-
-const char stopp = 'X';
-//const char startt = 'S';
-const char setSpeedL = 'L';
-const char setSpeedR = 'R';
-
-//const char sendData = 'A';
-//const char setwatt = 'W';
-//const char setInterval = 'U';
-//const char setUpdate = 'F';
-//const char printSettings = 'V';
-
-
-
-// parse the letter part of the gcode. commands follow
-// [S{mode}]start (enable motor) will start motor if throttle is zero.
-//    modes:
-//    - 0 is stop
-//    - 1 is potentiometer controlled
-//    - 2 is computer throttle controlled
-//    - 3 is wattage controlled
-//
-// [X000]stop (disable motor) will set throttle to zero.
-// [T{value}] set throttle
-// [W{value}] set wattage goal
-// [U{value}] update interval in milliseconds. default == 500ms
-//
-// [V{value}] print out current variables. (pid, wattage goal, update interval, etc)
-//
-// pid stuff. not stored across power cyles.
-// [P{value}]
-// [I{value}]
-// [D{value}]
-
-
-
-
-/////////////////////////////////
 void setup(){
-
-
 	Serial.begin(9600);
-	//analogReadResolution(16); // comment this out if using a chip with a 10 bit
-	myservoL.attach(sigOutL);  // attaches the servo on pin 9 to the servo object adc. for the teensy leave this here.
-	myservoR.attach(sigOutR);  // attaches the servo on pin 9 to the servo object
+	//analogReadResolution(16); // commented as using a chip with a 10 bit
+	myservoL.attach(LEFT_WEEL_PIN);  // attaches the servo on pin 9 to the servo object adc. for the teensy leave this here.
+	myservoR.attach(RIGHT_WEEL_PIN);  // attaches the servo on pin 9 to the servo object
 
 	pinMode(13, OUTPUT);
 	digitalWrite(13, HIGH); // turn on the led to let me know the program is working
@@ -130,79 +86,91 @@ void setup(){
 
 	delay(4000);
 
-	Serial.print("ALL set!");
-
+	if(DEBUG)
+		Serial.print("Setup Complete.");
 }
 
-/////////////////////////////////
-void loop() {
-	serialEvent();
-
-	///////////////////////
-	// data input
-	///////////////////////
-
-	//  Serial.print("string complete: ");
-	//  Serial.println(stringComplete);
-
-	if (stringComplete) {
-
-		//     Serial.print("I Recieved: ");
-		//     Serial.print(inputString);
-
-		letter = inputString.charAt(0); // pull out first charecter
-		inputString = inputString.substring(1); // cut off first charecter
-		number = inputString.toInt(); // convert the rest of the string to an integer.
-
-		inputString = ""; // clear the string
-		stringComplete = false;  // reset to default value so we don't accidentally trigger
-
-		// troubleshooting
-		//Serial.print("Letter = "); Serial.print(letter); Serial.print("  Number = "); Serial.println(number);
-
-
-		switch(letter){
-
-		case stopp: // purposely missspelled. stops motor
-			watchdog = 0;
-			Serial.println("Stopped");
-			break;
-
-		case setSpeedL: // purposely missspelled. stops motor
-			myservoL.write(number);
-			watchdog = WATCHSET;
-			break;
-
-		case setSpeedR: // purposely missspelled. stops motor
-			myservoR.write(number);
-			watchdog = WATCHSET;
-			break;
-
-			//       case startt:
-			//         //Serial.println("Started");
-			//         if (number >= 0 && number <= 3){
-			//           throttle = 0;
-			//           mode = number;
-			//        //Serial.print("mode = "); Serial.println (mode);
-			//         }else{
-			//           //Serial.print ("mode not in range");
-			//         }
-			//       break;
-
-		default:
-			Serial.print("bad command");
-			break;
-		}
-
-
-		number = 0;
+void parseInput(){
+	if(DEBUG){
+		Serial.print("I Recieved: ");
+		Serial.print(inputString);
 	}
 
+	letter = inputString.charAt(0);
+	inputString = inputString.substring(1);
+	commandArg = inputString.toInt();
 
+	inputString = "";
+	stringComplete = false;
 
-	///////////////////////
-	// data output routines
-	///////////////////////
+	if(DEBUG){
+		Serial.print("Letter = ");
+		Serial.print(letter);
+		Serial.print("  ComandArg = ");
+		Serial.println(commandArg);
+	}
+
+	switch(letter){
+
+	case STOP_CHAR:
+		watchdog = 0;
+		if(DEBUG)
+			Serial.println("Stopped.");
+		break;
+
+	case LEFT_CHAR:
+		myservoL.write(commandArg);
+		watchdog = WATCHDOG_TIME;
+		break;
+
+	case RIGHT_CHAR:
+		myservoR.write(commandArg);
+		watchdog = WATCHDOG_TIME;
+		break;
+
+		//case START_CHAR:
+		//if(DEBUG)
+		//	Serial.println("Started");
+		//if (commandArg >= 0 && commandArg <= 3){
+		//	throttle = 0;
+		//	mode = commandArg;
+		//	if(debug)
+		//		Serial.print("mode = "); Serial.println (mode);
+		//}else
+		//	if(DEBUG)
+		//		Serial.print ("mode not in range");
+		// break;
+
+	default:
+		Serial.print("Unknown Command.");
+		break;
+	}
+
+	commandArg = 0;
+}
+
+void readSerialData(){
+	while (Serial.available()){
+		char inChar = (char)Serial.read();
+		if(DEBUG>2)
+			Serial.print(inChar);
+		if (inChar == '\n')
+			stringComplete = true;
+		else
+			inputString += inChar;
+	}
+}
+
+void loop(){
+	readSerialData();
+
+	if(DEBUG>1){
+		Serial.print("string complete: ");
+		Serial.println(stringComplete);
+	}
+
+	if (stringComplete)
+		parseInput(inputString);
 
 	if(watchdog <= 0){
 		myservoL.write(ZEROSPEED);
@@ -211,33 +179,4 @@ void loop() {
 
 	watchdog--;
 	delay(10);
-}
-
-
-
-
-
-/*
-	SerialEvent occurs whenever a new data comes in the
-	hardware serial RX.  This routine is run between each
-	time loop() runs, so using delay inside loop can delay
-	response.  Multiple bytes of data may be available.
-*/
-void serialEvent() {
-	while (Serial.available()) {
-		// get the new byte:
-		char inChar = (char)Serial.read();
-		// add it to the inputString:
-		inputString += inChar;
-
-#ifdef SERIALECHO
-		Serial.print(inChar);  //echo serial commands if enabled
-#endif
-
-		// if the incoming character is a newline, set a flag
-		// so the main loop can do something about it:
-		if (inChar == '\n') {
-			stringComplete = true;
-		}
-	}
 }
