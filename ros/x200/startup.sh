@@ -1,4 +1,4 @@
-cd ~/git
+cd ~/git/PETER
 git pull
 #if not 'Already up-to-date.' restart script
 
