@@ -7,3 +7,7 @@ adduser ros
 su ros -c 'rosdep update'
 su ros -c 'echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc'
 apt-get install python-rosinstall -y
+su ros -c 'echo "sh ~/rosinit.sh">>~/.bashrc'
+su ros -c 'mkdir ~/git'
+su ros -c '~/git/git clone git@github.com:PETER-UWP/PETER.git'
+su ros -c '~/git/ros/x200/startup.sh'
