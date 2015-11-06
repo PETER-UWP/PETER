@@ -1,3 +1,11 @@
+* <2015-11-5>
+** Plans for Work Night
+*** Work with ROPS (Serial Communication to and from HKN Robot)
+*** Start Developing Psuedo-Code
+* <2015-10-30>
+** Set Up ROS on One of Murray's Laptops
+** Procured the HKN Robot (GUTTED IT!!!) 
+*** Will be used for future testing of code
 * <2015-10-29>
 ** Selected Primary Onboard Computer
 	 We will probably be using the [[https://developer.nvidia.com/jetson-tk1][Nividia Jetson TK1]]
