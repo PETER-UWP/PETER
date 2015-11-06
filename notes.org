@@ -1,3 +1,7 @@
+* <2015-11-5>
+** Plans for Work Night
+*** Work with ROPS (Serial Communication to and from HKN Robot)
+*** Start Developing Psuedo-Code
 * <2015-10-30>
 ** Set Up ROS on One of Murray's Laptops
 ** Procured the HKN Robot (GUTTED IT!!!) 
