@@ -1,3 +1,10 @@
+* <2015-11-6>
+** Tasks Assigned
+*** Camera Coding (Logan, Travis)
+*** Motor Control (Cody, Steven)
+*** X-Box Controller Interface (Lizzy)
+*** Port Management/Communications (Murray)
+** Flow Chart Established
 * <2015-11-5>
 ** Plans for Work Night
 *** Work with ROPS (Serial Communication to and from HKN Robot)
