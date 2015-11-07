@@ -3,21 +3,38 @@ P.E.T.E.R. (Platteville Engineering, Technology and Excellence in Robotics)
 Team PETER Robo-Ops repository.
 ===============================
 
+System Breakdown
+----------------
+* Local
+  * Joystick (Xbox)
+  * Visual interface
+* Communication
+  * *To Subdivide*
+* Remote
+  * Drive Control
+	* Ground
+	* Arm
+  * Computer Vision
+
 Current Tasks
 -------------
-* Get members onto Git
-* Decrease Frequency of eMails
-* Expand Acronym in Subtitle
 * Divide Up Tasks
 * Find Tasks
 
-Current Members (Add e-mail Next To Your Name)
-----------------------------------------------
+Current Members
+---------------
 * Steven W Laabs
-* Murray Fordyce
+* Murray Fordyce (unDeadHerbs)
 * Travis Kraemer
 * Lizzy Harasymiw
-* Cody Kundinger			
+* Cody Kundinger
 * Marshall Scholz (Teslafly)
+
+Finished Tasks
+--------------
+* Get members onto Git
+* Decrease Frequency of eMails
+* Expand Acronym in Subtitle
+
 
 --- would all members please add their name to the list so that they are listed in the repository ---
