@@ -9,7 +9,9 @@ System Breakdown
   * Joystick (Xbox)
   * Visual interface
 * Communication
-  * *To Subdivide*
+  * Control Protocol
+  * Video Transmissions
+  * Integration to Local and Remote
 * Remote
   * Drive Control
 	* Ground
