@@ -154,7 +154,7 @@ void readSerialData(){
 		char inChar = (char)Serial.read();
 		if(DEBUG>2)
 			Serial.print(inChar);
-		if (inChar == '\n')
+		if (inChar == 10||inChar == 13)
 			stringComplete = true;
 		else
 			inputString += inChar;
