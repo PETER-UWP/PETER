@@ -1,16 +1,13 @@
 CXX			= g++
-CXXFLAGS	= -std=c++11 -Wall -lpthread
+CXXFLAGS	= -std=c++11 -Wall -lpthread -MD -MP
 
-test: motorControllBufferTest
+tests: motorControllBufferTest
 
-motorControllBufferTest: motorControllBufferTest.o motorControllBuffer.o
-	$(CXX) $(CXXFLAGS) -o motorControllTest motorControllBufferTest.o motorControllBuffer.o
+motorControllBufferTest: motorControllBufferTest.o
+	$(CXX) $(CXXFLAGS) -o motorControllTest motorControllBufferTest.o
 
 motorControllBufferTest.o:
 	$(CXX) $(CXXFLAGS) -c motorControllBufferTest.cpp
-
-motorControllBuffer.o:
-	$(CXX) $(CXXFLAGS) -c motorControllBuffer.hpp
 
 check-syntax:
 	$(CXX) $(CXXFLAGS) ${CHK_SOURCES} #-o /dev/null

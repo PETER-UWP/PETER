@@ -60,7 +60,8 @@ public:
 			//wight from serialDev to out
 			char charBuffer[MAXLENGTH];
 			read(serialDev,charBuffer,MAXLENGTH);
-			out<<std::string(charBuffer);
+			if(charBuffer[0]!='\0')
+				out<<std::string(charBuffer);
 		}
 	}
 	explicit serialBuffer(std::string loc)
