@@ -107,7 +107,7 @@ public:
 		return ioDev.isAlive();
 	}
 	//implement the protocall here
-	voi move(int l,int r){
+	void move(int l,int r){
 		if(-100>l || l>100 || -100>r || r>100){
 			//noop
 			return;

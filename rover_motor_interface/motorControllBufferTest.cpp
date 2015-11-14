@@ -7,6 +7,8 @@ int main(){
 
 	if (!weels.areConnected()){
 		std::cout<<"Failed to open!"<<std::endl;
+	}else{
+		std::cout<<"Connected!"<<std::endl;
 	}
 	moterController.move(10,10);
 	sleep(3);
