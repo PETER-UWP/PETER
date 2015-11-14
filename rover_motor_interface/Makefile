@@ -3,7 +3,7 @@ CXXFLAGS	= -std=c++11 -Wall -lpthread
 
 test: moterControllerTest
 
-moterControllBufferTest: moterControllBufferTest.o moterControllBuffer.o
+moterControllBufferTest: moterControllBuffTest.o moterControllBuffer.o
 	$(CXX) $(CXXFLAGS) -o moterControllTest moterControllBufferTest.o moterControllBuffer.o
 
 moterControllBufferTest.o:
