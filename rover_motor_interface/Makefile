@@ -1,7 +1,7 @@
 CXX			= g++
 CXXFLAGS	= -std=c++11 -Wall -lpthread
 
-test: motorControllTest
+test: motorControllBufferTest
 
 motorControllBufferTest: motorControllBufferTest.o motorControllBuffer.o
 	$(CXX) $(CXXFLAGS) -o motorControllTest motorControllBufferTest.o motorControllBuffer.o
