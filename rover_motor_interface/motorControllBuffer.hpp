@@ -107,4 +107,15 @@ public:
 		return ioDev.isAlive();
 	}
 	//implement the protocall here
+	voi move(int l,int r){
+		if(-100>l || l>100 || -100>r || r>100){
+			//noop
+			return;
+		}
+		auto convert=[](int v){
+			return v*86/100+95;
+		}
+		ioDev.wrightData("L"+convert(l)+"\n");
+		ioDev.wrightData("R"+convert(r)+"\n");
+	}
 };
