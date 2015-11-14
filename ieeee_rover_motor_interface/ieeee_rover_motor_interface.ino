@@ -10,14 +10,8 @@
 	Codes to implement
 	- start (enable throttle)
 	- stop  (disable throttle / motor)
-	- set throttle (and scale to precentage)
-	- set target current
-	- set target wattage
 	- change update interval
-	- change rpm calculation interval
-	- update pid loop constants - saved across powerups
-	- readout pid loop constants over serial
-	- zero inputs? (current, thrust?)
+        - get imu outputs 
 */
 
 // configuration of pins/etc
@@ -68,7 +62,7 @@ const char STOP_CHAR = 'X';
 //const char START_CHAR = 'S';
 const char LEFT_CHAR = 'L';
 const char RIGHT_CHAR = 'R';
-//const char DATA_CHAR = 'A';
+const char GET_DATA = 'A';
 //const char WATT_CHAR = 'W';
 //const char SET_INTERVAL_CHAR = 'U';
 //const char SET_UPDATE_CHAR = 'F';
@@ -128,18 +122,8 @@ void parseInput(){
 		watchdog = WATCHDOG_TIME;
 		break;
 
-		//case START_CHAR:
-		//if(DEBUG)
-		//	Serial.println("Started");
-		//if (commandArg >= 0 && commandArg <= 3){
-		//	throttle = 0;
-		//	mode = commandArg;
-		//	if(debug)
-		//		Serial.print("mode = "); Serial.println (mode);
-		//}else
-		//	if(DEBUG)
-		//		Serial.print ("mode not in range");
-		// break;
+        case GET_DATA:
+           Serial.print('d');
 
 	default:
 		Serial.print("Unknown Command.");
