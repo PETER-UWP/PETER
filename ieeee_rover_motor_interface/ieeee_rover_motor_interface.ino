@@ -56,7 +56,7 @@ int throttle;    // variable to read the value from the analog pin
 
 #define DEBUG 0
 
-int commandArg = 0;//TODO:commandArg of what?
+int commandArg = 0;
 char letter;
 
 //WatchDog parameters

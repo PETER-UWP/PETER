@@ -47,3 +47,5 @@
     Via USB to the main on board computer for use as a motor control.
 *** Finally, we stressed the importance and desire to create redundant/backup systems
     As long as it isn't hurting the overall function and durability of the rover.
+*** component proirity list cvan be found here: https://docs.google.com/spreadsheets/d/1N-70JwlpkSemrh0h33gc6caCYI3nrzPdXuUPNOES18Y/edit?usp=sharing
+	email marshall for write access
