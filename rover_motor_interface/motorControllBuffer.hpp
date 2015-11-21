@@ -9,9 +9,14 @@
 #include <string.h>
 
 #define MAXLENGTH 20
+#define DEBUG 1
+
+#if DEBUG>0
+#include <iostream>
+#endif
 
 template<class T>
-std::deque<T>& operator<<(std::deque<T>& stream,T obj){
+std::deque<T>& operator<<(std::deque<T>& stream,T obj){t
 	stream.push_back(obj);
 	return stream;
 }
@@ -41,7 +46,13 @@ private:
 	bool alive=false;
 public:
 	void iworker(){
+#if DEBUG>1
+		std::cout<<"serialBuffer iworker started"<<std::endl;
+#endif
 		while(alive){
+#if DEBUG>1
+		std::cout<<"serialBuffer iworker alive"<<std::endl;
+#endif
 			//read to serialDev from in
 			for(;in.size();){
 				std::string tmp;
@@ -52,34 +63,65 @@ public:
 				charBuffer[tmp.size()]='\n';
 				charBuffer[tmp.size()+1]='\0';
 				write(serialDev,charBuffer,tmp.size()+2);
+				usleep(1000);
 			}
 		}
+#if DEBUG>1
+		std::cout<<"serialBuffer iworker dead"<<std::endl;
+#endif
 	}
 	void oworker(){
+#if DEBUG>1
+		std::cout<<"serialBuffer owerker start"<<std::endl;
+#endif
 		while(alive){
+#if DEBUG>1
+		std::cout<<"serialBuffer owerker alive"<<std::endl;
+#endif
 			//wight from serialDev to out
 			char charBuffer[MAXLENGTH];
 			read(serialDev,charBuffer,MAXLENGTH);
 			if(charBuffer[0]!='\0')
 				out<<std::string(charBuffer);
 		}
+#if DEBUG>1
+		std::cout<<"serialBuffer owerker dead"<<std::endl;
+#endif
 	}
 	explicit serialBuffer(std::string loc)
 	//:serialDev(loc){
 	{
+#if DEBUG>0
+		std::cout<<"serialBuffer INITing"<<std::endl;
+#endif
 		serialDev=open(loc.c_str(), O_RDWR | O_NONBLOCK);
 		if(serialDev>=0){
+#if DEBUG>0
+			std::cout<<"serialBuffer THREADing"<<std::endl;
+#endif
 			alive=true;
 			this->workerThread1=std::thread(&serialBuffer::iworker,this);
 			this->workerThread2=std::thread(&serialBuffer::oworker,this);
+#if DEBUG>0
+			std::cout<<"serialBuffer THREADed"<<std::endl;
+#endif
 		}
+#if DEBUG>0
+		std::cout<<"serialBuffer INITed"<<std::endl;
+#endif
 	}
 	~serialBuffer(){
+#if DEBUG>0
+		std::cout<<"serialBuffer distructor"<<std::endl;
+#endif
 		if(alive)
 			close(serialDev);
 		workerThread1.join();
 		workerThread2.join();
 		//serialDev.close();
+#if DEBUG>0
+		std::cout<<"serialBuffer distructed"<<std::endl;
+#endif
 	}
 	bool isAlive(){
 		return alive;//serialDev.is_open();
