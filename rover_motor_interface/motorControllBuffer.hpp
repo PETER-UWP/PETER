@@ -9,7 +9,7 @@
 #include <string.h>
 
 #define MAXLENGTH 20
-#define DEBUG 1
+#define DEBUG 0
 
 #if DEBUG>0
 #include <iostream>
@@ -72,7 +72,7 @@ public:
 	}
 	void oworker(){
 #if DEBUG>1
-		std::cout<<"serialBuffer owerker start"<<std::endl;
+		std::cout<<"serialBuffer oworker start"<<std::endl;
 #endif
 		while(alive){
 #if DEBUG>1
